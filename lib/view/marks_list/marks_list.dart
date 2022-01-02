@@ -17,7 +17,7 @@ class MarksList extends StatelessWidget {
           IconButton(onPressed: (){
             Get.toNamed('/mlistV');
             }, 
-            icon: Icon(Icons.add)),
+            icon: Icon(Icons.person_add)),
         ]
       ),
       body: Obx(()=>SingleChildScrollView(
@@ -29,6 +29,12 @@ class MarksList extends StatelessWidget {
               //DataColumn(label: Text('စဥ်'), numeric: true),
               DataColumn(label: Text('ခုံအမှတ်')),
               DataColumn(label: Text('အမည်')),
+              DataColumn(label: Text('မြန်မာစာ')),
+              DataColumn(label: Text('အင်္ဂလိပ်စာ')),
+              DataColumn(label: Text('သင်္ချာ')),
+              DataColumn(label: Text('ဓာတုဗေဒ')),
+              DataColumn(label: Text('ရုပဗေဒ')),
+              DataColumn(label: Text('ဇီဝဗေဒ')),
               DataColumn(label: Text('စုစုပေါင်း')),
               DataColumn(label: Text('အဆင့်')),
             ], 
@@ -36,11 +42,18 @@ class MarksList extends StatelessWidget {
               marksList.length, 
               (index) => DataRow(
                 onLongPress: (){
-                  Get.toNamed('/addmarks', arguments: {'roNo': marksList[index].roNumber, 'name': marksList[index].stuName});
+                  Get.toNamed('/editstumarks', arguments: {'roNo': marksList[index].roNumber.toString()});
+                  // Get.toNamed('/viewmarks', arguments: {'roNo': marksList[index].roNumber, 'name': marksList[index].stuName});
                 },
                 cells: [
                   DataCell(Text(marksList[index].roNumber.toString())),
                   DataCell(Text(marksList[index].stuName.toString())),
+                  DataCell(Text(marksList[index].sub1.toString())),
+                  DataCell(Text(marksList[index].sub2.toString())),
+                  DataCell(Text(marksList[index].sub3.toString())),
+                  DataCell(Text(marksList[index].sub4.toString())),
+                  DataCell(Text(marksList[index].sub5.toString())),
+                  DataCell(Text(marksList[index].sub6.toString())),
                   DataCell(Text(marksList[index].total.toString())),
                   DataCell(Text(marksList[index].rank.toString())),
                 ]))),

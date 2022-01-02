@@ -77,10 +77,22 @@ class MarksController extends GetxController{
     getAllMarks();
   }
 
+  selectStuMarksByRN(String roNo) async{
+    var mark = await _db.selectStuMarksByID(roNo);
+    roNoController.text = mark.roNumber.toString();
+    nameController.text = mark.stuName.toString();
+    sub1Controller.text = mark.sub1.toString();
+    sub2Controller.text = mark.sub2.toString();
+    sub3Controller.text = mark.sub3.toString();
+    sub4Controller.text = mark.sub4.toString();
+    sub5Controller.text = mark.sub5.toString();
+    sub6Controller.text = mark.sub6.toString();
+    totalController.text = mark.total.toString();
+    rankController.text = mark.rank.toString();
+  }
+ 
     updateStuMarksbyRN(String roNumber) {
     Marks mark = Marks(
-      
-      stuName: nameController.text,
       sub1: sub1Controller.text,
       sub2: sub2Controller.text,
       sub3: sub3Controller.text,

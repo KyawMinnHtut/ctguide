@@ -245,6 +245,27 @@ class DatabaseHelper {
         );
   }
 
+  Future<Marks> selectStuMarksByID(String roNo) async{
+    //Get a reference to the database.
+    Database db = await instance.database;
+    final List<Map<String, Object?>> marks = await db.query(table1, where: '$columnRN = ?', whereArgs: [roNo]);
+    //assign first map of students to a student
+    var mark = marks[0];
+    //var student = students[0];
+    return Marks(
+      roNumber: roNo,
+      stuName: mark['stuName'].toString(),
+      sub1: mark['sub1'].toString(),
+      sub2: mark['sub2'].toString(),
+      sub3: mark['sub3'].toString(),
+      sub4: mark['sub4'].toString(),
+      sub5: mark['sub5'].toString(),
+      sub6: mark['sub6'].toString(),
+      total: mark['total'].toString(),
+      rank: mark['rank'].toString(),
+    );
+  }
+
   Future deleleAllStudents() async {
     Database db = await instance.database;
     return await db.delete(table);

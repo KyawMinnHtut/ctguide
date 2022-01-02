@@ -134,7 +134,12 @@ class EditStu extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: (){controller.updateStudentbyID(id); controller.clear(); Get.toNamed('/stulist');}, child: const Icon(Icons.save),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          controller.updateStudentbyID(id); 
+          controller.clear(); 
+          Get.back();}, 
+        child: const Icon(Icons.save),
       ),
     );
   }

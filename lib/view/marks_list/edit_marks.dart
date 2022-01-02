@@ -5,13 +5,13 @@ import 'package:get/get.dart';
 class ViewMarks extends StatelessWidget {
   ViewMarks({ Key? key }) : super(key: key);
   final MarksController controller = Get.find();
-  var name = Get.arguments['name'];
   @override
   Widget build(BuildContext context) {
+    //var name = Get.arguments['name'];
     var marksList = controller.marks; 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('အမှတ်စာရင်း ထည့်ရန်'),
+        title: const Text('ဘာသာရပ်အလိုက်အမှတ်စာရင်း'),
         centerTitle: true,
         actions: [
           IconButton(onPressed: (){}, icon: Icon(Icons.search)),
@@ -40,12 +40,12 @@ class ViewMarks extends StatelessWidget {
               marksList.length, 
               (index) => DataRow(
                 onLongPress: (){
-                  //Get.toNamed('viewstu', arguments: {'name': marksList[name].name});
+                  Get.toNamed('/editstumarks', arguments: {'roNo': marksList[index].roNumber.toString()});
                 },
                 cells: [
                   DataCell(Text(marksList[index].roNumber.toString())),
                   DataCell(Text(marksList[index].stuName.toString())),
-                  DataCell(Text(marksList[index].sub1.toString()),showEditIcon: true),
+                  DataCell(Text(marksList[index].sub1.toString())),
                   DataCell(Text(marksList[index].sub2.toString())),
                   DataCell(Text(marksList[index].sub3.toString())),
                   DataCell(Text(marksList[index].sub4.toString())),

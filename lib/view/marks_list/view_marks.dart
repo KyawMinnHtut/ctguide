@@ -13,27 +13,27 @@ class MarksListView extends StatelessWidget {
     var marksList = controller.marks; 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('အမှတ်စာရင်း'),
+        title: const Text('ကျောင်းသားစာရင်း'),
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.search)),
-          IconButton(onPressed: (){
-            Get.toNamed('/addmarks');
-            }, 
-            icon: Icon(Icons.add)),
-        ]
+        // actions: [
+        //   IconButton(onPressed: (){}, icon: Icon(Icons.search)),
+        //   IconButton(onPressed: (){
+        //     Get.offAndToNamed('/addmarks');
+        //     }, 
+        //     icon: Icon(Icons.add)),
+        // ]
       ),
       body: Obx(()=>SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: SingleChildScrollView(
           child: DataTable(
+            showBottomBorder: true,
             //columnSpacing: 24,
             columns: const [
               //DataColumn(label: Text('စဥ်'), numeric: true),
+              DataColumn(label: Text('စဥ်')),
               DataColumn(label: Text('ခုံအမှတ်')),
               DataColumn(label: Text('အမည်')),
-              DataColumn(label: Text('စုစုပေါင်း')),
-              DataColumn(label: Text('အဆင့်')),
             ], 
             rows: List<DataRow>.generate(
               stuList.length, 
@@ -42,10 +42,9 @@ class MarksListView extends StatelessWidget {
                   Get.toNamed('/addmarks', arguments: {'roNo': stuList[index].roNo, 'name': stuList[index].name});
                 },
                 cells: [
+                  DataCell(Text((index+1).toString())),
                   DataCell(Text(stuList[index].roNo.toString())),
                   DataCell(Text(stuList[index].name.toString())),
-                  DataCell(Text('-')),
-                  DataCell(Text('-')),
                 ]))),
         ),
       )

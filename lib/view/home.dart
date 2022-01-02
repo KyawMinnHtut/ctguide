@@ -1,4 +1,3 @@
-import 'package:ctguide/controller/student_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -39,7 +38,9 @@ class HomeScreen extends StatelessWidget {
               width: 175,
               //color: Colors.amber,
               child: ElevatedButton(
-                onPressed: (){Get.toNamed('/mlist');}, 
+                onPressed: (){                  
+                  Get.toNamed('/mlist');
+                  }, 
                 child: const Text('အမှတ်စာရင်း')),
             )
           ],

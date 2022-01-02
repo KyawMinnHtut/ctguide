@@ -184,7 +184,7 @@ class AddStu extends StatelessWidget {
         onPressed: (){
           controller.addStudent();
           controller.clear();
-          Get.toNamed('/stulist');
+          Get.back();
         },),
     );
   }

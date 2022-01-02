@@ -198,7 +198,7 @@ class _ViewStuState extends State<ViewStu> {
                                   onPressed: (){
                                     controller.updateStudentbyID(id); 
                                     controller.clear(); 
-                                    Get.toNamed('/stulist');}, 
+                                    Get.back();}, 
                                   child: const Icon(Icons.save),) : 
                               FloatingActionButton(
                                   onPressed: (){

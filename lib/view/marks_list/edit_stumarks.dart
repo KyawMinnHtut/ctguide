@@ -3,18 +3,17 @@ import 'package:ctguide/controller/marks_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AddMarks extends StatelessWidget {
-  AddMarks({ Key? key }) : super(key: key);
+class EditStuMarks extends StatelessWidget {
+  EditStuMarks({ Key? key }) : super(key: key);
   final MarksController controller = Get.find();
   @override
   Widget build(BuildContext context) {
       var roNo = Get.arguments['roNo'];
-      var name = Get.arguments['name'];
-      //controller.updateStuMarksbyRN(roNo);
+      controller.selectStuMarksByRN(roNo);
       //var marksList = controller.marks; 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('အမှတ်စာရင်း ထည့်ရန်'),
+        title: const Text('အမှတ်စာရင်း ပြင်ရန်'),
         centerTitle: true,
         // actions: [
         //   IconButton(onPressed: (){}, icon: Icon(Icons.search)),
@@ -32,7 +31,7 @@ class AddMarks extends StatelessWidget {
                     border: Border.all(color: Colors.blue),
                     borderRadius: BorderRadius.circular(8)),
                   child: TextFormField(
-                    controller: controller.roNoController..text=roNo,
+                    controller: controller.roNoController,
                     enabled:false,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(border: InputBorder.none,
@@ -47,7 +46,7 @@ class AddMarks extends StatelessWidget {
                     border: Border.all(color: Colors.blue),
                     borderRadius: BorderRadius.circular(8)),
                   child: TextFormField(
-                    controller: controller.nameController..text=name,
+                    controller: controller.nameController,
                     enabled:false,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(border: InputBorder.none,
@@ -173,11 +172,9 @@ class AddMarks extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.save),
           onPressed: (){
-            controller.addMarks();
+            controller.updateStuMarksbyRN(roNo);
             controller.clear();
             Get.back();
-            //Get.offAndToNamed('/mlist');
-            //Get.offNamed('/mlist');
           },),
       
     );
