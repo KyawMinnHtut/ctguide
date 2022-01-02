@@ -61,8 +61,8 @@ class MarksController extends GetxController{
 
   addMarks(){
     Marks marks = Marks(
-      roNo: roNoController.text,
-      name: nameController.text,
+      roNumber: roNoController.text,
+      stuName: nameController.text,
       sub1: sub1Controller.text,
       sub2: sub2Controller.text,
       sub3: sub3Controller.text,
@@ -79,8 +79,8 @@ class MarksController extends GetxController{
 
     updateStuMarksbyRN(String roNumber) {
     Marks mark = Marks(
-      roNo: roNoController.text,
-      name: nameController.text,
+      
+      stuName: nameController.text,
       sub1: sub1Controller.text,
       sub2: sub2Controller.text,
       sub3: sub3Controller.text,
@@ -89,6 +89,7 @@ class MarksController extends GetxController{
       sub6: sub6Controller.text,
       total: totalController.text,
       rank: rankController.text,
+      roNumber: roNoController.text,
     );
     _db.updateStuMarksbyRN(roNumber, mark.sub1!, mark.sub2!, mark.sub3!, mark.sub4!, mark.sub5!, mark.sub6!, mark.total!, mark.rank!);
     log('values from updateStuMarksbyRN controller=>'+mark.toString());

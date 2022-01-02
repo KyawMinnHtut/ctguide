@@ -1,6 +1,6 @@
 class Marks {
-  String? roNo;
-  String? name;
+  String? roNumber;
+  String? stuName;
   String? sub1;
   String? sub2;
   String? sub3;
@@ -11,8 +11,8 @@ class Marks {
   String? rank;
 
   Marks(
-    {this.roNo,
-      this.name,
+    {this.roNumber,
+      this.stuName,
     this.sub1,
     this.sub2,
     this.sub3,
@@ -26,8 +26,8 @@ class Marks {
 
   Map<String, dynamic> toMap(){
     return {
-      'roNumber': roNo,
-      'stuName': name,
+      'roNumber': roNumber,
+      'stuName': stuName,
       'sub1': sub1,
       'sub2': sub2,
       'sub3': sub3,
@@ -42,7 +42,7 @@ class Marks {
   @override
   String toString() {
     // TODO: implement toString
-    return "Mark{'roNumber': $roNo, 'stuName': $name, 'sub1': $sub1, 'sub2': $sub2, 'sub3': $sub3, 'sub4': $sub4, 'sub5': $sub5, 'sub6': $sub6, 'total': $total, 'rank': $rank}";
+    return "Mark{'roNumber': $roNumber, 'stuName': $stuName, 'sub1': $sub1, 'sub2': $sub2, 'sub3': $sub3, 'sub4': $sub4, 'sub5': $sub5, 'sub6': $sub6, 'total': $total, 'rank': $rank}";
   }
 
 }

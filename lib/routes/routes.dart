@@ -3,6 +3,7 @@ import 'package:ctguide/view/home.dart';
 import 'package:ctguide/view/marks_list/add_marks.dart';
 import 'package:ctguide/view/marks_list/edit_marks.dart';
 import 'package:ctguide/view/marks_list/marks_list.dart';
+import 'package:ctguide/view/marks_list/view_marks.dart';
 import 'package:ctguide/view/present_absence/absence_list.dart';
 import 'package:ctguide/view/students_info/add_student.dart';
 import 'package:ctguide/view/students_info/edit_student.dart';
@@ -16,6 +17,7 @@ class MyRoutes {
     GetPage(name: "/stulist", page: ()=> StuList(), binding: StudentBinding()),
     GetPage(name: "/palist", page: ()=> const PAList()),
     GetPage(name: "/mlist", page: ()=> MarksList(), binding: MarkBinding()),
+    GetPage(name: "/mlistV", page: ()=> MarksListView(), binding: MarkBinding()),
     GetPage(name: "/addmarks", page: ()=> AddMarks(), binding: MarkBinding()),
     GetPage(name: "/viewmarks", page: ()=> ViewMarks(), binding: MarkBinding()),
     GetPage(name: "/addstu", page: ()=> AddStu(), binding: StudentBinding()),

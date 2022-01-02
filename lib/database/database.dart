@@ -77,8 +77,8 @@ class DatabaseHelper {
     await db.execute('''
           CREATE TABLE $table(
     $columnId INTEGER PRIMARY KEY,
-    $columnDOSE VARCHAR NOT NULL,
-    $columnRoNo VARCHAR,
+    $columnDOSE VARCHAR,
+    $columnRoNo VARCHAR NOT NULL UNIQUE,
     $columnName TEXT NOT NULL,
     $columnDOB VARCHAR,
     $columnFatherName TEXT,
@@ -87,6 +87,7 @@ class DatabaseHelper {
     $columnPhNumber VARCHAR
     )''');
 
+    
     await db.execute('''
           CREATE TABLE $table1(
     $columnRN VARCHAR PRIMARY KEY,
@@ -97,10 +98,11 @@ class DatabaseHelper {
     $columnSub4 TEXT,
     $columnSub5 TEXT,
     $columnSub6 TEXT,
-    $columnTotal NULL,
-    $columnRank NUll 
+    $columnTotal TEXT,
+    $columnRank TEXT, FOREIGN KEY  ($columnRN) REFERENCES $table($columnRoNo)
     )''');
   }
+  //, FOREIGN KEY  ($columnRN) REFERENCES $table1($columnRoNo)
   //FOREIGN KEY  ($columnStuName) REFERENCES $table($columnName) 
 
   // Helper methods
@@ -129,7 +131,8 @@ class DatabaseHelper {
     await db.insert(
       table1, 
       mark.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace, nullColumnHack: "");
+      conflictAlgorithm: ConflictAlgorithm.abort, nullColumnHack: "");
+    log('values from insertMarks database =>'+mark.toMap().toString());
   }
 
   //   Future<void> insertStuMarks(String roNumber, String name, String sub1, String sub2, String sub3, String sub4,String sub5, String sub6, String total, String rank) async {
@@ -174,12 +177,13 @@ class DatabaseHelper {
   Future<List<Marks>> queryAllStuMarks() async {
     Database db = await instance.database;
     //final data = await db.query(table);
-    final List<Map<String, dynamic>> marks = await db.rawQuery('SELECT $columnRoNo, $columnName FROM $table LEFT JOIN $table1 ON $table.$columnRoNo=$table1.$columnRN ORDER BY $columnRoNo');
+    final List<Map<String, dynamic>> marks = await db.query(table1);
+    //final List<Map<String, dynamic>> marks = await db.rawQuery('SELECT $columnRoNo, $columnName FROM $table LEFT JOIN $table1 ON $table.$columnRoNo=$table1.$columnRN ORDER BY $columnRoNo');
     log("values from database of queryAllStuMarks=>" + marks.toString());
     return List<Marks>.generate(marks.length, (i){
       return Marks(
-        roNo: marks[i]['roNo'],
-        name: marks[i]['name'],
+        roNumber: marks[i]['roNumber'],
+        stuName: marks[i]['stuName'],
         sub1: marks[i]['sub1'],
         sub2: marks[i]['sub2'],
         sub3: marks[i]['sub3'],

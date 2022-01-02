@@ -43,8 +43,8 @@ class ViewMarks extends StatelessWidget {
                   //Get.toNamed('viewstu', arguments: {'name': marksList[name].name});
                 },
                 cells: [
-                  DataCell(Text(marksList[index].roNo.toString())),
-                  DataCell(Text(marksList[index].name.toString())),
+                  DataCell(Text(marksList[index].roNumber.toString())),
+                  DataCell(Text(marksList[index].stuName.toString())),
                   DataCell(Text(marksList[index].sub1.toString()),showEditIcon: true),
                   DataCell(Text(marksList[index].sub2.toString())),
                   DataCell(Text(marksList[index].sub3.toString())),

@@ -1,12 +1,15 @@
 import 'package:ctguide/controller/marks_controller.dart';
+import 'package:ctguide/controller/student_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MarksList extends StatelessWidget {
-  MarksList({ Key? key }) : super(key: key);
+class MarksListView extends StatelessWidget {
+  MarksListView({ Key? key }) : super(key: key);
   final MarksController controller = Get.put(MarksController());
+  final StudentController controllerStu = Get.put(StudentController());
   @override
   Widget build(BuildContext context) {
+    var stuList = controllerStu.students;
     var marksList = controller.marks; 
     return Scaffold(
       appBar: AppBar(
@@ -15,7 +18,7 @@ class MarksList extends StatelessWidget {
         actions: [
           IconButton(onPressed: (){}, icon: Icon(Icons.search)),
           IconButton(onPressed: (){
-            Get.toNamed('/mlistV');
+            Get.toNamed('/addmarks');
             }, 
             icon: Icon(Icons.add)),
         ]
@@ -33,16 +36,16 @@ class MarksList extends StatelessWidget {
               DataColumn(label: Text('အဆင့်')),
             ], 
             rows: List<DataRow>.generate(
-              marksList.length, 
+              stuList.length, 
               (index) => DataRow(
                 onLongPress: (){
-                  Get.toNamed('/addmarks', arguments: {'roNo': marksList[index].roNumber, 'name': marksList[index].stuName});
+                  Get.toNamed('/addmarks', arguments: {'roNo': stuList[index].roNo, 'name': stuList[index].name});
                 },
                 cells: [
-                  DataCell(Text(marksList[index].roNumber.toString())),
-                  DataCell(Text(marksList[index].stuName.toString())),
-                  DataCell(Text(marksList[index].total.toString())),
-                  DataCell(Text(marksList[index].rank.toString())),
+                  DataCell(Text(stuList[index].roNo.toString())),
+                  DataCell(Text(stuList[index].name.toString())),
+                  DataCell(Text('-')),
+                  DataCell(Text('-')),
                 ]))),
         ),
       )
