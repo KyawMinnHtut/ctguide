@@ -1,6 +1,8 @@
 import 'package:ctguide/controller/marks_controller.dart';
+import 'package:ctguide/model/marks.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:search_page/search_page.dart';
 
 class MarksList extends StatelessWidget {
   MarksList({ Key? key }) : super(key: key);
@@ -13,12 +15,35 @@ class MarksList extends StatelessWidget {
         title: const Text('အမှတ်စာရင်း'),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.search)),
-          IconButton(onPressed: (){
-            Get.toNamed('/mlistV');
+          IconButton(
+            onPressed: (){
+              showSearch(
+                context: context, 
+                delegate: SearchPage<Marks>(
+                  searchLabel: 'Search students',
+                  suggestion: const Center(
+                    child: Text('Search student by name or rollno.')
+                  ),
+                  failure: Center(
+                    child: Text('No student found'),
+                  ),
+                  builder: (mark)=> ListTile(
+                    leading: Text(mark.roNumber.toString()),
+                    title: Text(mark.stuName.toString()),
+                    trailing: Text(mark.rank.toString()),
+                    dense: true,
+
+                  ), 
+                  filter: (mark)=>[
+                    mark.roNumber,
+                    mark.stuName,
+                    mark.rank,
+                  ], 
+                  items: controller.marks));
             }, 
-            icon: Icon(Icons.person_add)),
-        ]
+            icon: const Icon(Icons.search)
+            ),
+        ],
       ),
       body: Obx(()=>SingleChildScrollView(
         scrollDirection: Axis.horizontal,

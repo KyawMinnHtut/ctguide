@@ -1,8 +1,11 @@
 import 'package:ctguide/database/database.dart';
+import 'package:ctguide/model/marks.dart';
 import 'package:ctguide/model/student.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+
+GlobalKey<FormState> formKey = GlobalKey<FormState>();
 class StudentController extends GetxController{
   RxList<Student> students = <Student>[].obs;
   //final TextEditingController imageController = TextEditingController();
@@ -49,7 +52,24 @@ addStudent(){
       phNumber: phNumberController.text,
     );
     _db.insertStudent(student);
+    addStutoMarks();
     getAllStudents();
+  }
+
+  addStutoMarks(){
+    Marks marks = Marks(
+      roNumber: roNoController.text,
+      stuName: nameController.text,
+      sub1: '',
+      sub2: '',
+      sub3: '',
+      sub4: '',
+      sub5: '',
+      sub6: '',
+      total: '',
+      rank: '',
+    );
+    _db.insertStuMarks(marks);
   }
 
   getAllStudents() async{

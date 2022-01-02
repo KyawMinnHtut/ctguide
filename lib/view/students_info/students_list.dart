@@ -6,7 +6,8 @@ import 'package:search_page/search_page.dart';
 
 class StuList extends StatelessWidget {
   StuList({ Key? key }) : super(key: key);
-  final StudentController controller = Get.put(StudentController());  @override
+  final StudentController controller = Get.put(StudentController());  
+  @override
   Widget build(BuildContext context) {
     var studentList = controller.students;
     return Scaffold(

@@ -18,12 +18,12 @@ class MyRoutes {
     GetPage(name: "/stulist", page: ()=> StuList(), binding: StudentBinding()),
     GetPage(name: "/palist", page: ()=> const PAList()),
     GetPage(name: "/mlist", page: ()=> MarksList(), binding: MarkBinding()),
-    GetPage(name: "/mlistV", page: ()=> MarksListView(), binding: MarkBinding()),
-    GetPage(name: "/addmarks", page: ()=> AddMarks(), binding: MarkBinding()),
-    GetPage(name: "/viewmarks", page: ()=> ViewMarks(), binding: MarkBinding()),
+    //GetPage(name: "/mlistV", page: ()=> MarksListView(), binding: MarkBinding()),
+    //GetPage(name: "/addmarks", page: ()=> AddMarks(), binding: MarkBinding()),
+    //GetPage(name: "/viewmarks", page: ()=> ViewMarks(), binding: MarkBinding()),
      GetPage(name: "/editstumarks", page: ()=> EditStuMarks(), binding: MarkBinding()),
     GetPage(name: "/addstu", page: ()=> AddStu(), binding: StudentBinding()),
-    GetPage(name: "/viewstu", page: ()=> ViewStu(), binding: StudentBinding()),
+    GetPage(name: "/viewstu", page: ()=> const ViewStu(), binding: StudentBinding()),
     //GetPage(name: "/editstu", page: ()=> EditStu(), binding: StudentBinding()),
   ];
 }
