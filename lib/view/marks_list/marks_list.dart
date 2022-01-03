@@ -1,6 +1,7 @@
 import 'package:ctguide/controller/marks_controller.dart';
 import 'package:ctguide/model/marks.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
 import 'package:search_page/search_page.dart';
 
@@ -67,7 +68,7 @@ class MarksList extends StatelessWidget {
               marksList.length, 
               (index) => DataRow(
                 onLongPress: (){
-                  Get.toNamed('/editstumarks', arguments: {'roNo': marksList[index].roNumber.toString()});
+                  Get.toNamed('/editstumarks', arguments: {'id': marksList[index].id});
                   // Get.toNamed('/viewmarks', arguments: {'roNo': marksList[index].roNumber, 'name': marksList[index].stuName});
                 },
                 cells: [
@@ -85,6 +86,27 @@ class MarksList extends StatelessWidget {
         ),
       )
         ),
+        floatingActionButton: SpeedDial(
+          animatedIcon: AnimatedIcons.menu_close,
+          children: [
+            SpeedDialChild(
+              child: Icon(Icons.calendar_view_month_rounded),
+              label: 'July'
+            ),
+            SpeedDialChild(
+              child: Icon(Icons.calendar_view_month_rounded),
+              label: 'Octomber'
+            ),
+            SpeedDialChild(
+              child: Icon(Icons.calendar_view_month_rounded),
+              label: 'December'
+            ),
+            SpeedDialChild(
+              child: Icon(Icons.calendar_view_month_rounded),
+              label: 'February'
+            ),
+          ],
+        )
     );
   }
 }

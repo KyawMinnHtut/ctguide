@@ -8,8 +8,8 @@ class EditStuMarks extends StatelessWidget {
   final MarksController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-      var roNo = Get.arguments['roNo'];
-      controller.selectStuMarksByRN(roNo);
+      int id = Get.arguments['id'];
+      controller.selectStuMarksByID(id);
       //var marksList = controller.marks; 
     return Scaffold(
       appBar: AppBar(
@@ -132,7 +132,7 @@ class EditStuMarks extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.save),
           onPressed: (){
-            controller.updateStuMarksbyRN(roNo);
+            controller.updateStuMarksbyID(id);
             controller.clear();
             Get.back();
           },),

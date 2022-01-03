@@ -57,7 +57,7 @@ addStudent(){
   }
 
   addStutoMarks(){
-    Marks marks = Marks(
+    Marks marks1 = Marks(
       roNumber: roNoController.text,
       stuName: nameController.text,
       sub1: '',
@@ -68,8 +68,51 @@ addStudent(){
       sub6: '',
       total: '',
       rank: '',
+      mt: 'mt1',
     );
-    _db.insertStuMarks(marks);
+    _db.insertStuMarks(marks1);
+    Marks marks2 = Marks(
+      roNumber: roNoController.text,
+      stuName: nameController.text,
+      sub1: '',
+      sub2: '',
+      sub3: '',
+      sub4: '',
+      sub5: '',
+      sub6: '',
+      total: '',
+      rank: '',
+      mt: 'mt2',
+    );
+    _db.insertStuMarks(marks2);
+    Marks marks3 = Marks(
+      roNumber: roNoController.text,
+      stuName: nameController.text,
+      sub1: '',
+      sub2: '',
+      sub3: '',
+      sub4: '',
+      sub5: '',
+      sub6: '',
+      total: '',
+      rank: '',
+      mt: 'mt3',
+    );
+    _db.insertStuMarks(marks3);
+    Marks marks4 = Marks(
+      roNumber: roNoController.text,
+      stuName: nameController.text,
+      sub1: '',
+      sub2: '',
+      sub3: '',
+      sub4: '',
+      sub5: '',
+      sub6: '',
+      total: '',
+      rank: '',
+      mt: 'mt4',
+    );
+    _db.insertStuMarks(marks4);
   }
 
   getAllStudents() async{

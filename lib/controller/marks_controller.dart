@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 class MarksController extends GetxController{
   RxList<Marks> marks = <Marks>[].obs;
+  RxList<Marks> marksMT = <Marks>[].obs;
   final TextEditingController roNoController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController sub1Controller = TextEditingController();
@@ -17,6 +18,7 @@ class MarksController extends GetxController{
   final TextEditingController sub6Controller = TextEditingController();
   final TextEditingController totalController = TextEditingController();
   final TextEditingController rankController = TextEditingController();
+  final TextEditingController mtController = TextEditingController();
   final _db = DatabaseHelper.instance;
 
   @override
@@ -38,6 +40,7 @@ class MarksController extends GetxController{
     sub6Controller.dispose();
     totalController.dispose();
     rankController.dispose();
+    mtController.dispose();
   }
 
   clear(){
@@ -51,10 +54,17 @@ class MarksController extends GetxController{
     sub6Controller.clear();
     totalController.clear();
     rankController.clear();
+    mtController.clear();
   }
 
   getAllMarks() async {
     List<Marks> markList =  await _db.queryAllStuMarks();
+    marks.value = markList;
+    log('values from queryAllMarkscontroller=>  ' + markList.toString());
+  }
+
+  selectStuMarksByMT(String mt) async {
+    List<Marks> markList =  await _db.queryAllStuMarksByMT(mt);
     marks.value = markList;
     log('values from queryAllMarkscontroller=>  ' + markList.toString());
   }
@@ -77,8 +87,8 @@ class MarksController extends GetxController{
     getAllMarks();
   }
 
-  selectStuMarksByRN(String roNo) async{
-    var mark = await _db.selectStuMarksByID(roNo);
+  selectStuMarksByID(int id) async{
+    var mark = await _db.selectStuMarksByID(id);
     roNoController.text = mark.roNumber.toString();
     nameController.text = mark.stuName.toString();
     sub1Controller.text = mark.sub1.toString();
@@ -91,7 +101,7 @@ class MarksController extends GetxController{
     rankController.text = mark.rank.toString();
   }
  
-    updateStuMarksbyRN(String roNumber) {
+    updateStuMarksbyID(int id) {
     Marks mark = Marks(
       sub1: sub1Controller.text,
       sub2: sub2Controller.text,
@@ -101,10 +111,10 @@ class MarksController extends GetxController{
       sub6: sub6Controller.text,
       total: totalController.text,
       rank: rankController.text,
-      roNumber: roNoController.text,
+      //roNumber: roNoController.text,
     );
-    _db.updateStuMarksbyRN(roNumber, mark.sub1!, mark.sub2!, mark.sub3!, mark.sub4!, mark.sub5!, mark.sub6!, mark.total!, mark.rank!);
-    log('values from updateStuMarksbyRN controller=>'+mark.toString());
+    _db.updateStuMarksbyID(id, mark.sub1!, mark.sub2!, mark.sub3!, mark.sub4!, mark.sub5!, mark.sub6!, mark.total!, mark.rank!);
+    log('values from updateStuMarksbyID controller=>'+mark.toString());
     getAllMarks();
   }
 }
