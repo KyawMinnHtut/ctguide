@@ -164,4 +164,9 @@ addStudent(){
     getAllStudents();
   }
 
+  deleteStudentByID(int id) async{
+    await _db.deleteStudentByID(id);
+    getAllStudents();
+  }
+
 }

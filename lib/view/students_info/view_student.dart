@@ -18,9 +18,22 @@ class _ViewStuState extends State<ViewStu> {
       appBar:AppBar(
         title: const Text('ကျောင်းသား၏ကိုယ်ရေး'),
         centerTitle: true,
-        // actions: [
-        //   isEdit = false ? IconButton(onPressed: (){}, icon: Icon(Icons.edit)) : IconButton(onPressed: (){}, icon: Icon(Icons.save))
-        // ],
+        actions: [
+         IconButton(onPressed: (){
+                Get.defaultDialog(
+                  //confirmTextColor: Colors.red,
+                  title: 'Are you sure to delete?',
+                  content: Text(controller.nameController.text),
+                  confirm: ElevatedButton(onPressed: (){
+                    controller.deleteStudentByID(id);
+                    Get.toNamed('stulist');
+                  }, child: const Text('Delete')),
+                  cancel: ElevatedButton(onPressed: (){
+                    Get.back();
+                  }, child: const Text('Cancel')),
+                );
+              }, icon: const Icon(Icons.delete)),
+        ],
       ) ,      
       body: Padding(
         padding: const EdgeInsets.all(8.0),

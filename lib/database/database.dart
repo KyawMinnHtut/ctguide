@@ -205,7 +205,7 @@ class DatabaseHelper {
     Future<List<Marks>> queryAllStuMarksByMT(String mt) async {
     Database db = await instance.database;
     //final data = await db.query(table);
-    final List<Map<String, dynamic>> marks = await db.query(table, where: '$columnMT=?', whereArgs: [mt]);
+    final List<Map<String, dynamic>> marks = await db.query(table1, where: '$columnMT=?', whereArgs: [mt]);
     //final List<Map<String, dynamic>> marks = await db.rawQuery('SELECT $columnRoNo, $columnName FROM $table LEFT JOIN $table1 ON $table.$columnRoNo=$table1.$columnRN ORDER BY $columnRoNo');
     log("values from database of queryAllStuMarks=>" + marks.toString());
     return List<Marks>.generate(marks.length, (i){

@@ -10,7 +10,9 @@ class MarksList extends StatelessWidget {
   final MarksController controller = Get.put(MarksController());
   @override
   Widget build(BuildContext context) {
-    var marksList = controller.marks; 
+    var marksList = controller.marksMT;
+    // var mt = 'mt1';
+    controller.selectStuMarksByMT('mt1');
     return Scaffold(
       appBar: AppBar(
         title: const Text('အမှတ်စာရင်း'),
@@ -90,18 +92,22 @@ class MarksList extends StatelessWidget {
           animatedIcon: AnimatedIcons.menu_close,
           children: [
             SpeedDialChild(
+              onTap: (){controller.selectStuMarksByMT('mt1');},
               child: Icon(Icons.calendar_view_month_rounded),
               label: 'July'
             ),
             SpeedDialChild(
+              onTap: (){controller.selectStuMarksByMT('mt2');},
               child: Icon(Icons.calendar_view_month_rounded),
               label: 'Octomber'
             ),
             SpeedDialChild(
+              onTap: (){controller.selectStuMarksByMT('mt3');},
               child: Icon(Icons.calendar_view_month_rounded),
               label: 'December'
             ),
             SpeedDialChild(
+              onTap: (){controller.selectStuMarksByMT('mt4');},
               child: Icon(Icons.calendar_view_month_rounded),
               label: 'February'
             ),

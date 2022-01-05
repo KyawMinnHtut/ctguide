@@ -52,55 +52,72 @@ class AddStu extends StatelessWidget {
               //           },
               //       controller: controller.doseController,
               //       keyboardType: TextInputType.number,
-              //       decoration: InputDecoration(border: InputBorder.none,
+              //       decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
               //       hintText: 'ကျောင်းဝင်အမှတ်',
               //       contentPadding: EdgeInsets.all(4)),
               //     )
               //     ),
               //               ),
-              //     Container(
-              //     decoration: BoxDecoration(
-              //       //color: Colors.amber,
-              //       border: Border.all(color: Colors.blue),
-              //       borderRadius: BorderRadius.circular(8)),
-              //     child: TextFormField(
+              //     TextFormField(
               //       controller: controller.roNoController,
               //       keyboardType: TextInputType.number,
-              //       decoration: InputDecoration(border: InputBorder.none,
+              //       decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
               //       hintText: 'ခုံအမှတ်',
               //       contentPadding: EdgeInsets.all(4)),
-              //     )
               //     ),
               //             ],
               //           ),
               //         ),
-              //       //   Container(
-              //       //     width: 150,
-              //       //     decoration: BoxDecoration(
-              //       //       border: Border.all(color: Colors.blue),
-              //       // borderRadius: BorderRadius.circular(8)
-              //       //     ),
-              //       //     child: Center(
-              //       //       child: Stack(
-              //       //         children: [
-              //       //           //Icon(Icons.person_outline_sharp, size: 125, ),
-              //       //           Positioned(
-              //       //             top: 20,
-              //       //             right: 20,
-              //       //             child: InkWell(
-              //       //               onTap: () async{
-              //       //                 final XFile? image = await _picker.pickImage(source: ImageSource.gallery, maxHeight: 125, maxWidth: 125);
-              //       //               },
-              //       //               child: Icon(Icons.camera_alt)),
-              //       //           )
-              //       //         ],
-              //       //       ),
-              //       //     ),
-              //       //   ),
+              //         Container(
+              //           width: 150,
+              //           decoration: BoxDecoration(
+              //             border: Border.all(color: Colors.blue),
+              //       borderRadius: BorderRadius.circular(8)
+              //           ),
+              //           child: Center(
+              //             child: Stack(
+              //               children: [
+              //                 //Icon(Icons.person_outline_sharp, size: 125, ),
+              //                 Positioned(
+              //                   top: 20,
+              //                   right: 20,
+              //                   child: InkWell(
+              //                     onTap: () async{
+              //                       //final XFile? image = await _picker.pickImage(source: ImageSource.gallery, maxHeight: 125, maxWidth: 125);
+              //                     },
+              //                     child: Icon(Icons.camera_alt)),
+              //                 )
+              //               ],
+              //             ),
+              //           ),
+              //         ),
               //       ],
               //     )
               //     ),
               // ),
+              // Container(
+              //           height: 150,
+              //           decoration: BoxDecoration(
+              //             border: Border.all(color: Colors.blue),
+              //       borderRadius: BorderRadius.circular(8)
+              //           ),
+              //           child: Center(
+              //             child: Stack(
+              //               children: [
+              //                 //Icon(Icons.person_outline_sharp, size: 125, ),
+              //                 Positioned(
+              //                   top: 20,
+              //                   right: 20,
+              //                   child: InkWell(
+              //                     onTap: () async{
+              //                       //final XFile? image = await _picker.pickImage(source: ImageSource.gallery, maxHeight: 125, maxWidth: 125);
+              //                     },
+              //                     child: Icon(Icons.camera_alt)),
+              //                 )
+              //               ],
+              //             ),
+              //           ),
+              //         ),
               Padding(
                 padding: const EdgeInsets.only(top: 12, bottom: 12),
                 child: TextFormField(
@@ -216,7 +233,7 @@ class AddStu extends StatelessWidget {
                   // If the form is valid, display a snackbar. In the real world,
                   // you'd often call a server or save the information in a database.
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Processing Data')),
+                    const SnackBar(content: Text('ကျောင်းသားစာရင်းသစ် ထည့်သွင်းပီးပါပီ။'), backgroundColor: Colors.greenAccent,),
                   );
                 }
           

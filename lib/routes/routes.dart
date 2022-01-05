@@ -16,7 +16,7 @@ class MyRoutes {
   static final routes = [
     GetPage(name: "/home", page: ()=> const HomeScreen()),
     GetPage(name: "/stulist", page: ()=> StuList(), binding: StudentBinding()),
-    GetPage(name: "/palist", page: ()=> const PAList()),
+    //GetPage(name: "/palist", page: ()=> const PAList()),
     GetPage(name: "/mlist", page: ()=> MarksList(), binding: MarkBinding()),
     //GetPage(name: "/mlistV", page: ()=> MarksListView(), binding: MarkBinding()),
     //GetPage(name: "/addmarks", page: ()=> AddMarks(), binding: MarkBinding()),

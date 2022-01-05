@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text('အတန်းပိုင်လက်ဆွဲ', style: TextStyle(
-              color: Colors.lightGreen,
+              color: Colors.green,
               fontSize: 32,
               fontWeight: FontWeight.bold,
             ),
@@ -26,14 +26,14 @@ class HomeScreen extends StatelessWidget {
                 child: const Text('ကျောင်းသားစာရင်း')
                 ),
             ),
-            Container(
-              //color: Colors.amber,
-              width: 175,
-              child: ElevatedButton(
-                onPressed: (){Get.toNamed('/palist');}, 
-                child: const Text('(က) စာရင်း')
-                ),
-            ),
+            // Container(
+            //   //color: Colors.amber,
+            //   width: 175,
+            //   child: ElevatedButton(
+            //     onPressed: (){Get.toNamed('/palist');}, 
+            //     child: const Text('(က) စာရင်း')
+            //     ),
+            // ),
             Container(
               width: 175,
               //color: Colors.amber,

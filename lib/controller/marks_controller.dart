@@ -65,7 +65,7 @@ class MarksController extends GetxController{
 
   selectStuMarksByMT(String mt) async {
     List<Marks> markList =  await _db.queryAllStuMarksByMT(mt);
-    marks.value = markList;
+    marksMT.value = markList;
     log('values from queryAllMarkscontroller=>  ' + markList.toString());
   }
 
